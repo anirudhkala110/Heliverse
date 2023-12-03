@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-axios.defaults.withCredentials=true
 function Details(props) {
     const { user } = props;
     const [userData, setUserData] = useState([]);
+    axios.defaults.withCredentials=true
     const USER_API_URL = 'https://heliverse-api.vercel.app/api/users';
     useEffect(() => {
         axios.get(`${USER_API_URL}/${user.id}`)

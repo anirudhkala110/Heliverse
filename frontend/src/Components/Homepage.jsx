@@ -4,7 +4,6 @@ import ReactPaginate from 'react-paginate';
 import Button from 'react-bootstrap/Button';
 import Details from './Details';
 import { Link, useNavigate } from 'react-router-dom';
-axios.defaults.withCredentials=true
 const Homepage = () => {
     const [userdata, setUserdata] = useState([]);
     const [address, setAddress] = useState([]);
@@ -14,6 +13,7 @@ const Homepage = () => {
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [msg, setMsg] = useState(null);
 
+    axios.defaults.withCredentials = true
     useEffect(() => {
         axios.get('https://heliverse-api.vercel.app/api/users')
             .then(res => {
@@ -95,7 +95,7 @@ const Homepage = () => {
     const navigate = useNavigate();
 
     const handleCreateTeamClick = () => {
-      navigate('/create-team');
+        navigate('/create-team');
     };
 
     return (

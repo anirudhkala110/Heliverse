@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-axios.defaults.withCredentials=true
 const AddNew = () => {
     const [Newdata, setNewData] = useState([{
         first_name: '',
@@ -12,6 +11,7 @@ const AddNew = () => {
         avatar: '',
         availablility: 1
     }])
+    axios.defaults.withCredentials=true
     const [msg, setMsg] = useState()
     const [msg_type, setMsg_type] = useState()
     const handleAvatarChange = (e) => {

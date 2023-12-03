@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-axios.defaults.withCredentials=true
 const TeamDetail = () => {
     const { id } = useParams();
     const [team, setTeam] = useState({});
     const [members, setMembers] = useState([]);
     const [userData, setUserData] = useState([]);
-
+    
+    axios.defaults.withCredentials=true
     useEffect(() => {
         axios.get(`https://heliverse-api.vercel.app/api/team-detail/${id}`)
             .then(res => {

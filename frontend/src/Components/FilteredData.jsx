@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import Button from 'react-bootstrap/Button';
 import Details from './Details';
-axios.defaults.withCredentials=true
 const FilteredData = () => {
-
+    
+    axios.defaults.withCredentials=true
     const [gender, setGender] = useState([])
     const [domain, setDomain] = useState([])
     const [available, setAvailable] = useState([])
