@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import Button from 'react-bootstrap/Button';
 import Details from './Details';
 import { Link, useNavigate } from 'react-router-dom';
-
+axios.defaults.withCredentials=true
 const CreateTeam = () => {
     const [selectedUsers, setSelectedUsers] = useState([]);
     const [teams, setTeams] = useState([]);

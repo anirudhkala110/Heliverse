@@ -5,6 +5,8 @@ import AddNew from './Components/AddNew';
 import FilteredData from './Components/FilteredData';
 import CreateTeam from './Components/CreateTeam';
 import TeamDetail from './Components/TeamDetail';
+import axios from 'axios';
+axios.defaults.withCredentials=true
 const App = () => {
   const handleNavigate = () => {
     window.location.reload('/')
