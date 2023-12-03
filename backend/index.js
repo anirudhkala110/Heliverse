@@ -22,8 +22,8 @@ app.use(cors(
 ))
 
 app.get('/', (req, res) => {
-    console.log("COnnected")
-    return res.json('Connected')
+    console.log("Connected")
+    res.json('Connected')
 })
 
 
