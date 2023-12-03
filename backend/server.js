@@ -11,12 +11,18 @@ doenv.config()
 const app = express();
 const port = 8096 || process.env.PORT;
 
-
+app.use(cors(
+    {
+        origin:[''],
+        methods:["POST","GET","PUT","DELETE"],
+        credentials:true
+    }
+))
 app.use(bodyParser.json());
-app.use(cors())
+app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: false, useUnifiedTopology: false });
+mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mongodb.net/Heliverse?retryWrites=true&w=majority', { useNewUrlParser: false, useUnifiedTopology: false });
 const client = new MongoClient(process.env.DATABASE_URL, {
     serverApi: {
         version: ServerApiVersion.v1,
