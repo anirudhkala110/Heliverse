@@ -9,7 +9,7 @@ const TeamDetail = () => {
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8096/api/team-detail/${id}`)
+        axios.get(`https://heliverse-api.vercel.app/api/team-detail/${id}`)
             .then(res => {
                 setTeam(res.data);
                 setMembers(res.data.users);
@@ -23,7 +23,7 @@ const TeamDetail = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             if (members && members.length > 0) {
-                const response = await axios.get(`http://localhost:8096/api/details/${members}`);
+                const response = await axios.get(`https://heliverse-api.vercel.app/api/details/${members}`);
                 // console.log(response.data.UserData)
                 setUserData(response.data.UserData);
                 setMsg(response.data.msg)

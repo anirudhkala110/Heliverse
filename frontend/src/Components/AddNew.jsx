@@ -38,7 +38,7 @@ const AddNew = () => {
     const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8096/api/users', {
+        axios.post('https://heliverse-api.vercel.app/api/users', {
             ...Newdata, first_name: Newdata.first_name,
             last_name: Newdata.last_name,
             email: Newdata.email,

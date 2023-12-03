@@ -15,7 +15,7 @@ const Homepage = () => {
     const [msg, setMsg] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:8096/api/users')
+        axios.get('https://heliverse-api.vercel.app/api/users')
             .then(res => {
                 setUserdata(res.data);
                 setAddress(res.data.address);

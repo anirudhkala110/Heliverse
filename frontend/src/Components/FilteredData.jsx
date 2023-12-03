@@ -83,7 +83,7 @@ const FilteredData = () => {
     };
 
     const handleGender = () => {
-        axios.get(`http://localhost:8096/api/gender`)
+        axios.get(`https://heliverse-api.vercel.app/api/gender`)
             .then(res => {
                 setGender(res.data.genders)
             })
@@ -92,7 +92,7 @@ const FilteredData = () => {
             })
     }
     const handleDomain = () => {
-        axios.get(`http://localhost:8096/api/domain`)
+        axios.get(`https://heliverse-api.vercel.app/api/domain`)
             .then(res => {
                 setDomain(res.data.domains)
             })
@@ -101,7 +101,7 @@ const FilteredData = () => {
             })
     }
     const handleAvalable = () => {
-        axios.get(`http://localhost:8096/api/available`)
+        axios.get(`https://heliverse-api.vercel.app/api/available`)
             .then(res => {
                 setAvailable(res.data.availables)
             })
@@ -113,7 +113,7 @@ const FilteredData = () => {
     const handleSubmit = () => {
         console.log(Finalavailable, Finaldomain, Finalgender);
 
-        axios.get(`http://localhost:8096/api/filtered-data`, {
+        axios.get(`https://heliverse-api.vercel.app/api/filtered-data`, {
             params: {
                 Finalavailable,
                 Finaldomain,
@@ -141,7 +141,7 @@ const FilteredData = () => {
                     {
                         domain &&
                         <select className='form-select' onChange={e => setFinalDomain(e.target.value)}>
-                            {domain.length===0 && <option selected disabled>--Click Domain to select from the list--</option>}
+                            <option selected disabled>--Click Domain to select from the list--</option>
                             {domain.map((domain, i) => (
                                 <>
                                     <option value={`${domain}`} key={domain} >{domain}</option>
@@ -155,7 +155,7 @@ const FilteredData = () => {
                     {
                         gender &&
                         <select className='form-select' onChange={e => setFinalGender(e.target.value)}>
-                            {gender.length===0 && <option selected disabled>--Click Gender to select from the list--</option>}
+                            <option selected disabled>--Click Gender to select from the list--</option>
                             {gender.map((gender, i) => (
                                 <>
                                     <option value={`${gender}`} key={gender} >{gender}</option>
@@ -169,7 +169,7 @@ const FilteredData = () => {
                     {
                         available &&
                         <select className='form-select' onChange={e => setFinalAvailable(e.target.value)}>
-                            {available.length===0 && <option selected disabled>--Click Availability to select from the list--</option>}
+                            <option selected disabled>--Click Availability to select from the list--</option>
                             {available.map((available, i) => (
                                 <>
                                     <option value={`${available}`} key={available} >{available ? 'Yes' : 'No'}</option>

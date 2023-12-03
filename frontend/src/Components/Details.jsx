@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Details(props) {
     const { user } = props;
     const [userData, setUserData] = useState([]);
-    const USER_API_URL = 'http://localhost:8096/api/users';
+    const USER_API_URL = 'https://heliverse-api.vercel.app/api/users';
     useEffect(() => {
         axios.get(`${USER_API_URL}/${user.id}`)
             .then(res => {
@@ -24,7 +24,7 @@ function Details(props) {
     const navigate = useNavigate()
     const handleDelete = (id) => {
         console.log(id)
-        axios.delete(`http://localhost:8096/api/users/${id}`)
+        axios.delete(`https://heliverse-api.vercel.app/api/users/${id}`)
             .then(res => {
                 console.log(res.data.msg)
                 setMsg(res.data.msg)

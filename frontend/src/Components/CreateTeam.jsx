@@ -14,7 +14,7 @@ const CreateTeam = () => {
         console.log(selectedUsers);
 
         try {
-            const response = await axios.post('http://localhost:8096/api/teams', {
+            const response = await axios.post('https://heliverse-api.vercel.app/api/teams', {
                 selectedUsers,teamName
             });
 
@@ -29,7 +29,7 @@ const CreateTeam = () => {
     const [allTeams, setAllteams] = useState([]);
     useEffect(() => {
         axios
-            .get('http://localhost:8096/api/teams')
+            .get('https://heliverse-api.vercel.app/api/teams')
             .then((res) => {
                 setAllteams(res.data);
             })
@@ -46,7 +46,7 @@ const CreateTeam = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8096/api/creating-team')
+            .get('https://heliverse-api.vercel.app/api/creating-team')
             .then((res) => {
                 setUserdata(res.data);
                 const defaultItemsPerPage = res.data.length;
