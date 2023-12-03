@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mo
 app.use(bodyParser.json());
 app.use(cors(
     {
-        origin: ["https://heliverse-api.vercel.app"],
+        origin: ["https://heliverse-1ugi.vercel.app/"],
         methods: ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
