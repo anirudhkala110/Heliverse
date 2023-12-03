@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Modify the styling of the pagination container */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+  align-items: center;
+}
+
+/* Style for each pagination item (page number) */
+.pagination li {
+  margin: 0 5px;
+}
+
+/* Style for the active page number */
+.pagination .active a {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+/* Style for the "previous" and "next" buttons */
+.pagination .previous,
+.pagination .next {
+  margin: 0 10px;
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width:740px) {
+  .min-width-740 {
+    display: block !important;
+    padding-left: 15% !important;
+  }
+}
+
+.min-width-740 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.min-width-740-first {
+  display: flex;
+  flex-direction: row;
+}
