@@ -5,48 +5,21 @@ const bodyParser = require('body-parser');
 const UserModal = require('./Modals/AddUserModal');
 const cors = require('cors')
 const doenv = require('dotenv')
-const { MongoClient, ServerApiVersion } = require('mongodb');
 
 doenv.config()
 const app = express();
 const port = 8096 || process.env.PORT;
 
+mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mongodb.net/test?retryWrites=true&w=majority')
+
+app.use(bodyParser.json());
 app.use(cors(
     {
-        origin:[''],
-        methods:["POST","GET","PUT","DELETE"],
-        credentials:true
+        origin: ["https://heliverse-1ugi.vercel.app"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
     }
 ))
-app.use(bodyParser.json());
-app.use(express.json());
-
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: false, useUnifiedTopology: false });
-const client = new MongoClient(process.env.DATABASE_URL, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-});
-
-async function run() {
-    try {
-        // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
-        // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 });
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-        // Ensures that the client will close when you finish/error
-
-
-        await client.close();
-    }
-}
-run().catch(console.dir);
-
 
 app.get('/', (req, res) => {
     console.log("COnnected")
