@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mongodb.net/Heliverse?retryWrites=true&w=majority', { useNewUrlParser: false, useUnifiedTopology: false });
+mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: false, useUnifiedTopology: false });
 const client = new MongoClient(process.env.DATABASE_URL, {
     serverApi: {
         version: ServerApiVersion.v1,
