@@ -12,8 +12,9 @@ app.use(bodyParser.json());
 app.use(cors())
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/HeliverseData', { useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connect(`mongodb+srv://anirudhkala:UhnuOCxlZ5bQvcUO@cluster0.pkh7czu.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
+//Password : UhnuOCxlZ5bQvcUO
+//User Name : anirudhkala
 
 app.get('/', (req, res) => {
     console.log("COnnected")
