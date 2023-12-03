@@ -11,7 +11,6 @@ const app = express();
 const port = 8096 || process.env.PORT;
 
 mongoose.connect('mongodb+srv://anirudhkala:gMuwTIoI3ojlp8R6@cluster0.pkh7czu.mongodb.net/test?retryWrites=true&w=majority')
-
 app.use(bodyParser.json());
 app.use(cors(
     {
