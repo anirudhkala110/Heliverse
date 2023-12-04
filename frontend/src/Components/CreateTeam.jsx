@@ -27,7 +27,7 @@ setMsg(response.data.msg)
                 setTeamName('');
             }
             else {
-                alert(response.data.msg_type)
+                alert(response.data.msg)
                 setInterval(() => {
                     setMsg(null)
                 }, 5000)
