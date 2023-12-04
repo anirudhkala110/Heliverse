@@ -21,14 +21,13 @@ const CreateTeam = () => {
             });
 setMsg(response.data.msg)
             setMsg_type(response.data.msg_type)
-            console.log(response.data)
             if (response.data.msg_type === 'good') {
                 setTeams([...teams, response.data.newTeam]);
                 setSelectedUsers([]);
                 setTeamName('');
             }
             else {
-                alert("Please enter all the information")
+                alert(response.data.msg_type)
                 setInterval(() => {
                     setMsg(null)
                 }, 5000)
