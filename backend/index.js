@@ -251,7 +251,14 @@ app.get('/api/teams', async (req, res) => {
 });
 app.post('/api/teams', async (req, res) => {
     const { selectedUsers, teamName } = req.body;
+    console.log(teamName)
     console.log(selectedUsers)
+    if (!teamName || teamName === '' || teamName === "") {
+        return res.json({ msg: "Please enter the Team Name . . .", msg_type: "error" })
+    }
+    else if (selectedUsers.length <= 0) {
+        return res.json({ msg: "Please Select the Members . . .", msg: "error" })
+    }
     try {
         // Validate selected users
         // const userIds = selectedUsers.map(user => user._id.toString());
@@ -265,7 +272,7 @@ app.post('/api/teams', async (req, res) => {
         const existingTeam = await TeamModel.findOne({ uniqueKey: entryKey });
 
         if (existingTeam) {
-            return res.status(400).json({ error: 'Team with the same users already exists.' });
+            return res.json({ msg: 'Team with the same users already exists.', msg_type: 'error' });
         }
         // console.log(teamName)
         // Create a new team and associate selected users
@@ -276,8 +283,7 @@ app.post('/api/teams', async (req, res) => {
         });
 
         await newTeam.save();
-
-        res.json({ team: newTeam, message: 'Team created successfully.' });
+        return res.json({ msg: 'Team created successfully.', msg_type: "good",newTeam });
     } catch (error) {
         if (error.code === 11000) {
             return res.status(400).json({ error: 'Team with the same users already exists.' });
