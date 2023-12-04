@@ -9,6 +9,8 @@ const CreateTeam = () => {
     const [teams, setTeams] = useState([]);
     const [teamName, setTeamName] = useState('');
     const [users, setUsers] = useState();
+    const [msg, setMsg] = useState(null);
+    const [msg_type, setMsg_type] = useState()
     axios.defaults.withCredentials=true
     const createTeam = async () => {
         console.log(selectedUsers);
@@ -17,10 +19,20 @@ const CreateTeam = () => {
             const response = await axios.post('https://heliverse-api.vercel.app/api/teams', {
                 selectedUsers,teamName
             });
-
-            setTeams([...teams, response.data.team]);
-            setSelectedUsers([]);
-            setTeamName('');
+setMsg(response.data.msg)
+            setMsg_type(response.data.msg_type)
+            console.log(response.data)
+            if (response.data.msg_type === 'good') {
+                setTeams([...teams, response.data.newTeam]);
+                setSelectedUsers([]);
+                setTeamName('');
+            }
+            else {
+                alert("Please enter all the information")
+                setInterval(() => {
+                    setMsg(null)
+                }, 5000)
+            }
         } catch (error) {
             console.error('Error creating team:', error);
         }
@@ -42,7 +54,6 @@ const CreateTeam = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [filteredUsers, setFilteredUsers] = useState([]);
-    const [msg, setMsg] = useState(null);
 
     useEffect(() => {
         axios
