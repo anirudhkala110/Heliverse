@@ -19,9 +19,10 @@ const CreateTeam = () => {
             const response = await axios.post('https://heliverse-api.vercel.app/api/teams', {
                 selectedUsers,teamName
             });
-setMsg(response.data.msg)
+            setMsg(response.data.msg)
             setMsg_type(response.data.msg_type)
             if (response.data.msg_type === 'good') {
+                alert(response.data.msg)
                 setTeams([...teams, response.data.newTeam]);
                 setSelectedUsers([]);
                 setTeamName('');
@@ -80,7 +81,7 @@ setMsg(response.data.msg)
     return (
         <div className="container mt-5">
             <h2>Create Team</h2>
-
+            {msg && <center className={`alert ${msg_type === "error" ? 'alert-danger' : 'alert-success'}`} >{msg}</center>}
             <div className="mb-3">
                 <label>Team Name:</label>
                 <input
